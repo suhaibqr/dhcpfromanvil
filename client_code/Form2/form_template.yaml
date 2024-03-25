@@ -9,24 +9,53 @@ components:
     properties: {content: Update Data}
     type: RichText
     layout_properties: {grid_position: 'BBWWDR,UDWBZH'}
-  - name: outlined_button_1
-    properties: {text: Update, role: outlined-button}
+  - name: update_data_btn
+    properties: {text: Update Data, role: outlined-button}
     type: Button
-    layout_properties: {grid_position: 'BBWWDR,UUUKPK'}
+    layout_properties: {grid_position: 'BBWWDR,OCADWF'}
   - name: rich_text_2
-    properties: {content: Select Interface}
+    properties: {content: Select Interface to View Relevant Data}
     type: RichText
     layout_properties: {grid_position: 'XTKXXQ,EYPTSH'}
-  - name: drop_down_1
+  - name: interface_drop_menu
     properties: {}
     type: DropDown
     layout_properties: {grid_position: 'XTKXXQ,DDLIQQ'}
+  - name: rich_text_4
+    properties: {content: Check IP availability}
+    type: RichText
+    layout_properties: {grid_position: 'YQPHJR,KFRAVW'}
+  - name: ip_address_input_box
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'YQPHJR,HHESSN'}
+  - name: check_ip_btn
+    properties: {text: Check IP, role: outlined-button}
+    type: Button
+    layout_properties: {grid_position: 'YQPHJR,IQTVGI'}
+  - name: rich_text_3
+    properties: {content: Select Data to be shown}
+    type: RichText
+    layout_properties: {grid_position: 'HTQMKT,QXLKLL'}
+  - name: check_box_1
+    properties: {text: Statistcs}
+    type: CheckBox
+    layout_properties: {grid_position: 'HTQMKT,OCQAIR'}
+  - name: check_box_2
+    properties: {text: DHCP}
+    type: CheckBox
+    layout_properties: {grid_position: 'HTQMKT,ENYSVW'}
+  - name: check_box_3
+    properties: {text: ARP}
+    type: CheckBox
+    layout_properties: {grid_position: 'HTQMKT,BRWOEI'}
 - name: data_grid_1
   properties:
     columns:
-    - {id: JKSDUP, title: Column 1, data_key: column_1}
-    - {id: VJQQOR, title: Column 2, data_key: column_2}
-    - {id: OJLQEN, title: Column 3, data_key: column_3}
+    - {id: JKSDUP, title: Interface/VLAN, data_key: column_1}
+    - {id: VJQQOR, title: DHCP Pools, data_key: column_2}
+    - {id: DEGFUI, data_key: column_1, title: Free IPs Outside DHCP Pools}
+    - {id: OJLQEN, title: Free IPs in DHCP Pools, data_key: column_3}
   type: DataGrid
   components:
   - name: repeating_panel_1
@@ -36,13 +65,28 @@ components:
 - name: data_grid_2
   properties:
     columns:
-    - {id: JKSDUP, title: Column 1, data_key: column_1}
-    - {id: VJQQOR, title: Column 2, data_key: column_2}
-    - {id: OJLQEN, title: Column 3, data_key: column_3}
+    - {id: JKSDUP, title: IP Address, data_key: column_1}
+    - {id: VJQQOR, title: MAC, data_key: column_2}
+    - {id: UBOPWY, data_key: column_1, title: Hostname}
+    - {id: OJLQEN, title: Expiry, data_key: column_3}
+    - {id: PAHQTN, data_key: column_1, title: Description}
+    - {id: FOBOBZ, data_key: column_1, title: Actions}
   type: DataGrid
   components:
   - name: repeating_panel_2
     properties: {item_template: Form2.RowTemplate2}
     type: RepeatingPanel
   layout_properties: {grid_position: 'ZKWJEF,CQBOZG'}
+- name: data_grid_3
+  properties:
+    columns:
+    - {id: JKSDUP, title: IP, data_key: column_1}
+    - {id: VJQQOR, title: MAC, data_key: column_2}
+    - {id: OJLQEN, title: Column 3, data_key: column_3}
+  type: DataGrid
+  components:
+  - name: repeating_panel_3
+    properties: {item_template: Form2.RowTemplate3}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'FAFSHE,FLOHCV'}
 is_package: true
