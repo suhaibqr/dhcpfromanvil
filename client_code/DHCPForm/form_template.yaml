@@ -28,25 +28,34 @@ components:
     layout_properties: {grid_position: 'YQPHJR,IQTVGI'}
     event_bindings: {click: check_ip_btn_click}
   - name: rich_text_3
-    properties: {content: Select interface and Data}
+    properties: {content: Select interface & Data}
     type: RichText
     layout_properties: {grid_position: 'HTQMKT,QXLKLL'}
   - name: interface_drop_menu
-    properties: {}
+    properties: {placeholder: Select Interface, include_placeholder: true}
     type: DropDown
     layout_properties: {grid_position: 'HTQMKT,WUHCOA'}
-  - name: show_statistics_box
-    properties: {text: Statistcs}
+    event_bindings: {change: interface_drop_menu_change}
+  - name: show_statistics_checkbox
+    properties: {text: Statistics}
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,OCQAIR'}
-  - name: show_dhcp_box
+    event_bindings: {change: show_statistics_checkbox_change}
+  - name: show_dhcp_checkbox
     properties: {text: DHCP}
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,ENYSVW'}
-  - name: show_arp_box
+    event_bindings: {change: show_dhcp_checkbox_change}
+  - name: show_arp_checkbox
     properties: {text: ARP}
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,BRWOEI'}
+    event_bindings: {change: show_arp_checkbox_change}
+  - name: outlined_button_2
+    properties: {text: Show Assignable IPs, role: outlined-button}
+    type: Button
+    layout_properties: {grid_position: 'HTQMKT,QONLLV'}
+    event_bindings: {click: outlined_button_2_click}
   - name: rich_text_5
     properties: {content: Static Assignment}
     type: RichText
@@ -66,38 +75,45 @@ components:
 - name: statistics_grid
   properties:
     columns:
-    - {id: JKSDUP, title: Interface/VLAN, data_key: interface}
-    - {id: YOBJFH, data_key: column_1, title: Network}
-    - {id: VJQQOR, title: DHCP Pools, data_key: dhcp_pool}
-    - {id: OJLQEN, title: Free IPs in DHCP Pools, data_key: free_dhcp_ips_count}
-    - {id: DEGFUI, data_key: free_ips_outside_dhcp_count, title: Free IPs Outside DHCP Pools}
+    - {id: JKSDUP, title: Interface/VLAN, data_key: interface, expand: true}
+    - {id: YOBJFH, data_key: interface_network, title: Network, expand: true}
+    - {id: VJQQOR, title: DHCP Pools, data_key: dhcp_pools, expand: true}
+    - {id: OJLQEN, title: Free IPs in DHCP Pools, data_key: free_dhcp_ips_count, expand: true}
+    - {id: DEGFUI, data_key: free_ips_outside_dhcp_count, title: Free IPs Outside DHCP Pools,
+      expand: true}
+    visible: false
   type: DataGrid
   components:
   - name: repeating_panel_statistics
     properties: {item_template: DHCPForm.statisticsTemplate}
     type: RepeatingPanel
-  layout_properties: {grid_position: 'PGYLIR,XUKWVB'}
+  layout_properties: {grid_position: 'PGYLIR,XUKWVB', full_width_row: false}
 - name: dhcp_grid
   properties:
     columns:
-    - {id: JKSDUP, title: IP Address, data_key: ip}
-    - {id: VJQQOR, title: MAC, data_key: mac}
-    - {id: UBOPWY, data_key: hostname, title: Hostname}
-    - {id: OJLQEN, title: Expiry, data_key: expire_time}
-    - {id: PAHQTN, data_key: description, title: Description}
-    - {id: FOBOBZ, data_key: column_1, title: Actions}
+    - {id: JKSDUP, title: IP Address, data_key: ip, expand: true}
+    - {id: VJQQOR, title: MAC, data_key: mac, expand: true}
+    - {id: UBOPWY, data_key: hostname, title: Hostname, expand: true}
+    - {id: OJLQEN, title: Expiry, data_key: expire_time, expand: true}
+    - {id: PAHQTN, data_key: description, title: Description, expand: true}
+    - {id: FECCAE, data_key: is_static, title: Assignment, expand: true}
+    - {id: FOBOBZ, data_key: actions, title: actions, expand: false}
+    auto_header: true
+    visible: false
   type: DataGrid
   components:
   - name: repeating_panel_dhcp
     properties: {item_template: DHCPForm.dhcpTemplate}
     type: RepeatingPanel
-  layout_properties: {grid_position: 'ZKWJEF,CQBOZG'}
+  layout_properties: {grid_position: 'ZKWJEF,CQBOZG', full_width_row: false}
+  data_bindings: []
 - name: arp_grid
   properties:
     columns:
     - {id: JKSDUP, title: IP, data_key: ip}
     - {id: VJQQOR, title: MAC, data_key: mac}
-    - {id: OJLQEN, title: Column 3, data_key: age}
+    - {id: OJLQEN, title: Age, data_key: age}
+    visible: false
   type: DataGrid
   components:
   - name: repeating_panel_arp
