@@ -1,7 +1,7 @@
-from ._anvil_designer import RowTemplate2Template
+from ._anvil_designer import statisticsTemplateTemplate
 from anvil import *
 
-class RowTemplate2(RowTemplate2Template):
+class statisticsTemplate(statisticsTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

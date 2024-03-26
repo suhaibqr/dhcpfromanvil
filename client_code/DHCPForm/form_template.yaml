@@ -13,6 +13,7 @@ components:
     properties: {text: Update Data, role: outlined-button}
     type: Button
     layout_properties: {grid_position: 'BBWWDR,OCADWF'}
+    event_bindings: {click: update_data_btn_click}
   - name: rich_text_2
     properties: {content: Select Interface to View Relevant Data}
     type: RichText
@@ -37,32 +38,33 @@ components:
     properties: {content: Select Data to be shown}
     type: RichText
     layout_properties: {grid_position: 'HTQMKT,QXLKLL'}
-  - name: check_box_1
+  - name: show_statistics_box
     properties: {text: Statistcs}
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,OCQAIR'}
-  - name: check_box_2
+  - name: show_dhcp_box
     properties: {text: DHCP}
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,ENYSVW'}
-  - name: check_box_3
+  - name: show_arp_box
     properties: {text: ARP}
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,BRWOEI'}
-- name: data_grid_1
+- name: statistics_grid
   properties:
     columns:
-    - {id: JKSDUP, title: Interface/VLAN, data_key: column_1}
-    - {id: VJQQOR, title: DHCP Pools, data_key: column_2}
-    - {id: DEGFUI, data_key: column_1, title: Free IPs Outside DHCP Pools}
-    - {id: OJLQEN, title: Free IPs in DHCP Pools, data_key: column_3}
+    - {id: JKSDUP, title: Interface/VLAN, data_key: interface}
+    - {id: YOBJFH, data_key: column_1, title: Network}
+    - {id: VJQQOR, title: DHCP Pools, data_key: dhcp_pool}
+    - {id: OJLQEN, title: Free IPs in DHCP Pools, data_key: free_dhcp_ips_count}
+    - {id: DEGFUI, data_key: free_ips_outside_dhcp_count, title: Free IPs Outside DHCP Pools}
   type: DataGrid
   components:
-  - name: repeating_panel_1
-    properties: {item_template: Form2.RowTemplate1}
+  - name: repeating_panel_statistics
+    properties: {item_template: DHCPForm.statisticsTemplate}
     type: RepeatingPanel
   layout_properties: {grid_position: 'PGYLIR,XUKWVB'}
-- name: data_grid_2
+- name: dhcp_grid
   properties:
     columns:
     - {id: JKSDUP, title: IP Address, data_key: column_1}
@@ -73,11 +75,11 @@ components:
     - {id: FOBOBZ, data_key: column_1, title: Actions}
   type: DataGrid
   components:
-  - name: repeating_panel_2
-    properties: {item_template: Form2.RowTemplate2}
+  - name: repeating_panel_dhcp
+    properties: {item_template: DHCPForm.dhcpTemplate}
     type: RepeatingPanel
   layout_properties: {grid_position: 'ZKWJEF,CQBOZG'}
-- name: data_grid_3
+- name: arp_grid
   properties:
     columns:
     - {id: JKSDUP, title: IP, data_key: column_1}
@@ -85,8 +87,8 @@ components:
     - {id: OJLQEN, title: Column 3, data_key: column_3}
   type: DataGrid
   components:
-  - name: repeating_panel_3
-    properties: {item_template: Form2.RowTemplate3}
+  - name: repeating_panel_arp
+    properties: {item_template: DHCPForm.arpTemplate}
     type: RepeatingPanel
   layout_properties: {grid_position: 'FAFSHE,FLOHCV'}
 is_package: true

@@ -1,10 +1,7 @@
-from ._anvil_designer import Form2Template
+from ._anvil_designer import dhcpTemplateTemplate
 from anvil import *
 
-# data keys will contain a button "reserve, revoke"
-# available IPs table, will contain a button "static"
-
-class Form2(Form2Template):
+class dhcpTemplate(dhcpTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
