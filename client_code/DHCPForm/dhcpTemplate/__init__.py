@@ -1,5 +1,6 @@
 from ._anvil_designer import dhcpTemplateTemplate
 from anvil import *
+import anvil.server
 
 class dhcpTemplate(dhcpTemplateTemplate):
   def __init__(self, **properties):

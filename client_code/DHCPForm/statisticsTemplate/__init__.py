@@ -1,5 +1,6 @@
 from ._anvil_designer import statisticsTemplateTemplate
 from anvil import *
+import anvil.server
 
 class statisticsTemplate(statisticsTemplateTemplate):
   def __init__(self, **properties):

@@ -14,31 +14,24 @@ components:
     type: Button
     layout_properties: {grid_position: 'BBWWDR,OCADWF'}
     event_bindings: {click: update_data_btn_click}
-  - name: rich_text_2
-    properties: {content: Select Interface to View Relevant Data}
-    type: RichText
-    layout_properties: {grid_position: 'XTKXXQ,EYPTSH'}
-  - name: interface_drop_menu
-    properties: {}
-    type: DropDown
-    layout_properties: {grid_position: 'XTKXXQ,DDLIQQ'}
   - name: rich_text_4
     properties: {content: Check IP availability}
     type: RichText
     layout_properties: {grid_position: 'YQPHJR,KFRAVW'}
   - name: ip_address_input_box
-    properties: {}
+    properties: {placeholder: Enter IP Address}
     type: TextBox
     layout_properties: {grid_position: 'YQPHJR,HHESSN'}
   - name: check_ip_btn
     properties: {text: Check IP, role: outlined-button}
     type: Button
     layout_properties: {grid_position: 'YQPHJR,IQTVGI'}
+    event_bindings: {click: check_ip_btn_click}
   - name: rich_text_3
     properties: {content: Select interface and Data}
     type: RichText
     layout_properties: {grid_position: 'HTQMKT,QXLKLL'}
-  - name: drop_down_1
+  - name: interface_drop_menu
     properties: {}
     type: DropDown
     layout_properties: {grid_position: 'HTQMKT,WUHCOA'}

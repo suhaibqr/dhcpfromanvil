@@ -1,3 +1,5 @@
+import anvil.server
+from collections import defaultdict
 # This is a module.
 # You can define variables and functions here, and use them from any form. For example, in a top-level form:
 #
@@ -52,7 +54,7 @@ def update_dhcp():
 
 
 
-
+"""
 statistics_demo = [
     {
         'interface': 'VLAN0010',
@@ -461,3 +463,4 @@ demo_statistics = [
         'free_ips_outside_dhcp_count': 13
     }
 ]
+"""

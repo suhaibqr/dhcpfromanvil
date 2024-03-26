@@ -3,10 +3,16 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
+startup: {type: form, module: DHCPForm}
 package_name: DHCP
 allow_embedding: false
 name: DHCP
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-full
+  server_spec: {base: python310-minimal}
 metadata: {title: DHCP}
-startup_form: Form1
+startup_form: null
+uplink_visible: true
 renamed: true
