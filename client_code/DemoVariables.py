@@ -317,3 +317,147 @@ ip_details_demo = defaultdict(None,
                                   'interface_arps': IPSet(['92.253.92.41/32']),
                                   'interface_dhcp_sets': IPSet([]),
                                   'interface_leased': IPSet([])})})
+
+
+arp_demo = [
+    {'ip': '192.168.8.176', 'age': 10, 'mac': '38:f3:ab:73:45:c9'},
+    {'ip': '192.168.8.169', 'age': 3, 'mac': '28:ee:52:11:59:f0'},
+    {'ip': '192.168.8.162', 'age': 15, 'mac': '7c:8a:e1:a0:5d:0c'},
+    {'ip': '192.168.8.168', 'age': 2, 'mac': '7c:8a:e1:a0:5c:58'},
+    {'ip': '192.168.8.181', 'age': 20, 'mac': 'b4:45:06:6b:d0:15'},
+    {'ip': '192.168.8.207', 'age': 9, 'mac': '00:17:c8:26:9a:23'},
+    {'ip': '192.168.8.161', 'age': 4, 'mac': '38:f3:ab:6c:bd:03'},
+    {'ip': '192.168.8.154', 'age': 20, 'mac': '00:24:9b:75:22:ad'},
+    {'ip': '192.168.8.252', 'age': 6, 'mac': '00:38:df:ca:d1:58'},
+    {'ip': '192.168.8.166', 'age': 22, 'mac': '8c:ae:4c:f6:03:6e'},
+    {'ip': '192.168.8.179', 'age': 2, 'mac': '00:e0:4c:68:39:cf'},
+    {'ip': '192.168.8.251', 'age': 13, 'mac': 'c4:b9:cd:39:38:61'},
+    {'ip': '192.168.8.172', 'age': 18, 'mac': '28:ee:52:11:5f:2d'},
+    {'ip': '192.168.8.34', 'age': 22, 'mac': 'e0:cb:bc:8f:4d:66'},
+    {'ip': '192.168.8.185', 'age': 14, 'mac': 'b4:45:06:6b:cf:9d'},
+    {'ip': '192.168.8.152', 'age': 12, 'mac': 'b4:45:06:6b:d0:a9'},
+    {'ip': '192.168.8.250', 'age': 0, 'mac': 'c4:b9:cd:39:3a:09'},
+    {'ip': '192.168.8.158', 'age': 28, 'mac': 'ac:1a:3d:b2:b1:b5'},
+    {'ip': '192.168.8.171', 'age': 15, 'mac': 'f8:75:a4:4d:30:c1'},
+    {'ip': '192.168.8.184', 'age': 18, 'mac': 'f8:75:a4:ea:c7:16'},
+    {'ip': '192.168.8.33', 'age': 3, 'mac': 'b0:fa:eb:3d:a4:2a'},
+    {'ip': '192.168.8.164', 'age': 8, 'mac': 'f8:75:a4:ea:c8:0e'},
+    {'ip': '192.168.8.249', 'age': 3, 'mac': '70:18:a7:44:81:f7'},
+    {'ip': '192.168.8.157', 'age': 16, 'mac': 'b4:45:06:6b:d0:55'},
+    {'ip': '192.168.8.170', 'age': 1, 'mac': 'f8:75:a4:ea:c1:47'}
+]
+
+demo_statistics = [
+    {
+        'interface': 'VLAN0010',
+        'interface_network': '192.168.8.254/24',
+        'dhcp_pools': ['192.168.8.150-192.168.8.240'],
+        'free_dhcp_ips_count': 60,
+        'free_ips_outside_dhcp_count': 156
+    },
+    {
+        'interface': 'VLAN0050',
+        'interface_network': '172.16.50.1/24',
+        'dhcp_pools': ['172.16.50.100-172.16.50.199'],
+        'free_dhcp_ips_count': 100,
+        'free_ips_outside_dhcp_count': 153
+    },
+    {
+        'interface': 'VLAN0040',
+        'interface_network': '172.16.40.1/24',
+        'dhcp_pools': ['172.16.40.2-172.16.40.254'],
+        'free_dhcp_ips_count': 141,
+        'free_ips_outside_dhcp_count': 'No Free IPs'
+    },
+    {
+        'interface': 'VLAN0060',
+        'interface_network': '172.16.60.1/24',
+        'dhcp_pools': ['172.16.60.100-172.16.60.105'],
+        'free_dhcp_ips_count': 6,
+        'free_ips_outside_dhcp_count': 245
+    },
+    {
+        'interface': 'wan2',
+        'interface_network': '92.253.92.42/29',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 4
+    },
+    {
+        'interface': 'GRE-ZSCALER01',
+        'interface_network': '172.18.48.81/32',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 'No Free IPs'
+    },
+    {
+        'interface': 'GRE-ZSCALER02',
+        'interface_network': '172.18.48.85/32',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 'No Free IPs'
+    },
+    {
+        'interface': 'GRE-ZSCALER03',
+        'interface_network': '172.21.26.145/32',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 'No Free IPs'
+    },
+    {
+        'interface': 'GRE-ZSCALER04',
+        'interface_network': '172.21.26.149/32',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 'No Free IPs'
+    },
+    {
+        'interface': 'VLAN0020',
+        'interface_network': '172.16.20.1/24',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 253
+    },
+    {
+        'interface': 'VLAN0070',
+        'interface_network': '172.16.70.1/24',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 253
+    },
+    {
+        'interface': 'dmz',
+        'interface_network': '10.10.10.1/24',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 253
+    },
+    {
+        'interface': 'fortilink',
+        'interface_network': '169.254.1.1/24',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 253
+    },
+    {
+        'interface': 'internal',
+        'interface_network': '192.168.1.99/24',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 253
+    },
+    {
+        'interface': 'nameif VLAN0030',
+        'interface_network': '172.16.30.1/24',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 253
+    },
+    {
+        'interface': 'wan1',
+        'interface_network': '212.118.7.50/28',
+        'dhcp_pools': 'Not Configured',
+        'free_dhcp_ips_count': '-',
+        'free_ips_outside_dhcp_count': 13
+    }
+]
