@@ -90,8 +90,9 @@ components:
     - {id: JKSDUP, title: Interface/VLAN, data_key: interface, expand: true}
     - {id: YOBJFH, data_key: interface_network, title: Network, expand: true}
     - {id: VJQQOR, title: DHCP Pools, data_key: dhcp_pools, expand: true}
-    - {id: OJLQEN, title: Free IPs in DHCP Pools, data_key: free_dhcp_ips_count, expand: true}
-    - {id: DEGFUI, data_key: free_ips_outside_dhcp_count, title: Free IPs Outside DHCP Pools,
+    - {id: OJLQEN, title: Unused IPs in DHCP Pools, data_key: free_dhcp_ips_count,
+      expand: true}
+    - {id: DEGFUI, data_key: free_ips_outside_dhcp_count, title: Unused IPs Outside DHCP Pools,
       expand: true}
     visible: false
   type: DataGrid
