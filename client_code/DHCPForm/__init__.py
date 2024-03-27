@@ -26,6 +26,8 @@ class DHCPForm(DHCPFormTemplate):
       self.interface_drop_menu.selected_value = None
       self.last_update.content = f"Last Update was at: {datetime.now()} UTC"
       self.last_update.visible = True
+      # if self.show_statistics_checkbox.checked
+      self.statistics_grid.visible = True
     Notification("Update Was Successful")
     
     # print(self.repeating_panel_statistics.items)
@@ -48,6 +50,8 @@ class DHCPForm(DHCPFormTemplate):
     self.repeating_panel_dhcp.items = dhcp
     self.repeating_panel_arp.items = arp
     self.available_from_dhcp, self.available_from_subnet = anvil.server.call('u_get_available_ips', self.interface_drop_menu.selected_value)
+    
+    
     pass
 
   def show_statistics_checkbox_change(self, **event_args):
@@ -93,10 +97,10 @@ class DHCPForm(DHCPFormTemplate):
     self.available_outside_dhcp_checkbox.checked = False
     self.show_arp_checkbox.checked = False
     self.show_dhcp_checkbox.checked = False
-    self.show_statistics_checkbox.checked = False
+    # self.show_statistics_checkbox.checked = True
     self.dhcp_grid.visible = False 
     self.arp_grid.visible = False
-    self.statistics_grid.visible = False
+    # self.statistics_grid.visible = False
     self.available_from_dhcp_grid.visible = False
     self.available_from_subnet_grid.visible = False
 

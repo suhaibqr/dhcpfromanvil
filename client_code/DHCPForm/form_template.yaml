@@ -6,29 +6,28 @@ components:
   layout_properties: {grid_position: 'YGOOIT,TVQONR'}
   components:
   - name: rich_text_2
-    properties: {content: 'This Tools is Connected To: Firewall 192.168.8.254:4443'}
+    properties: {content: 'This Tools is Connected To: Firewall 192.168.8.254:4443
+
+        ***Click on "UPDATE Data" First***', align: center}
     type: RichText
     layout_properties: {grid_position: 'YVJQPR,MGKWZG'}
-  - name: rich_text_1
-    properties: {content: Update Data}
-    type: RichText
-    layout_properties: {grid_position: 'BBWWDR,UDWBZH'}
   - name: last_update
     properties: {content: '', visible: false}
     type: RichText
     layout_properties: {grid_position: 'BBWWDR,QUHRZJ'}
   - name: update_data_btn
-    properties: {text: Update Data, role: outlined-button}
+    properties: {text: Update Data, role: outlined-button, underline: true, italic: false,
+      bold: true, icon: 'fa:refresh'}
     type: Button
-    layout_properties: {grid_position: 'BBWWDR,OCADWF'}
+    layout_properties: {grid_position: 'BBWWDR,OCADWF', full_width_row: false}
     event_bindings: {click: update_data_btn_click}
   - name: show_statistics_checkbox
-    properties: {text: Show Summary}
+    properties: {text: Show Summary Table, checked: true}
     type: CheckBox
     layout_properties: {grid_position: 'BBWWDR,HUXXEX'}
     event_bindings: {change: show_statistics_checkbox_change}
   - name: rich_text_4
-    properties: {content: Check IP availability}
+    properties: {content: Check IP availability, align: right}
     type: RichText
     layout_properties: {grid_position: 'YQPHJR,KFRAVW'}
   - name: ip_address_input_box
@@ -36,12 +35,12 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'YQPHJR,HHESSN'}
   - name: check_ip_btn
-    properties: {text: Check IP, role: outlined-button}
+    properties: {text: Check IP, role: outlined-button, align: left, icon: 'fa:binoculars'}
     type: Button
     layout_properties: {grid_position: 'YQPHJR,IQTVGI'}
     event_bindings: {click: check_ip_btn_click}
   - name: rich_text_3
-    properties: {content: Select interface & Data}
+    properties: {content: Select interface & Data, align: right}
     type: RichText
     layout_properties: {grid_position: 'HTQMKT,QXLKLL'}
   - name: interface_drop_menu
@@ -60,17 +59,17 @@ components:
     layout_properties: {grid_position: 'HTQMKT,BRWOEI'}
     event_bindings: {change: show_arp_checkbox_change}
   - name: available_from_dhcp_checkbox
-    properties: {text: Available IPs From DHCP Pools}
+    properties: {text: Unused IPs From DHCP Pools}
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,PZBFCN'}
     event_bindings: {change: available_from_dhcp_checkbox_change}
   - name: available_outside_dhcp_checkbox
-    properties: {text: Available IPs Outside DHCP Pools}
+    properties: {text: Unused IPs Outside DHCP Pools}
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,QPYYJH'}
     event_bindings: {change: available_outside_dhcp_checkbox_change}
   - name: rich_text_5
-    properties: {content: Static Assignment}
+    properties: {content: Static Assignment, align: right}
     type: RichText
     layout_properties: {grid_position: 'EXHZEF,YTKHUC'}
   - name: text_box_1
@@ -82,9 +81,9 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'EXHZEF,WKWVAZ'}
   - name: outlined_button_1
-    properties: {text: Bind, role: outlined-button}
+    properties: {text: Bind, role: outlined-button, align: left, icon: 'fa:chain'}
     type: Button
-    layout_properties: {grid_position: 'EXHZEF,IMJOST'}
+    layout_properties: {grid_position: 'EXHZEF,IMJOST', full_width_row: false}
 - name: statistics_grid
   properties:
     columns:
@@ -97,6 +96,10 @@ components:
     visible: false
   type: DataGrid
   components:
+  - name: statistics_grid_label
+    properties: {align: center, text: Summary Table, bold: true}
+    type: Label
+    layout_properties: {}
   - name: repeating_panel_statistics
     properties: {item_template: DHCPForm.statisticsTemplate}
     type: RepeatingPanel
@@ -115,6 +118,10 @@ components:
     visible: false
   type: DataGrid
   components:
+  - name: dhcp_grid_label
+    properties: {text: DHCP Clients, align: center, bold: true}
+    type: Label
+    layout_properties: {}
   - name: repeating_panel_dhcp
     properties: {item_template: DHCPForm.dhcpTemplate}
     type: RepeatingPanel
@@ -129,6 +136,10 @@ components:
     visible: false
   type: DataGrid
   components:
+  - name: arp_grid_label
+    properties: {align: center, text: ARP Table, bold: true}
+    type: Label
+    layout_properties: {}
   - name: repeating_panel_arp
     properties: {item_template: DHCPForm.arpTemplate}
     type: RepeatingPanel
@@ -149,7 +160,7 @@ components:
 - name: available_from_subnet_grid
   properties:
     columns:
-    - {id: JKSDUP, title: Available IPs from Subnet, data_key: subnet}
+    - {id: JKSDUP, title: Available IPs Outsde DHCP Pools, data_key: subnet}
     - {id: VJQQOR, title: Column 2, data_key: column_2}
     - {id: OJLQEN, title: Column 3, data_key: column_3}
     visible: false
