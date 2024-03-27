@@ -16,7 +16,7 @@ class DHCPForm(DHCPFormTemplate):
 
   def update_data_btn_click(self, **event_args):
     with Notification("Please Wait While Updating"):
-      self.clear_selection()
+      self.clear_all_selection()
       aa = self.dhcp_grid.columns[-1]["id"]
       Handlers.save_actions_id(aa)
       r = anvil.server.call('get_available_ips')
@@ -33,10 +33,13 @@ class DHCPForm(DHCPFormTemplate):
   def check_ip_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
     s = anvil.server.call('u_check_ip_availability', self.ip_address_input_box.text)
-    alert(s)
+    alert(s,large= True)
 
   def interface_drop_menu_change(self, **event_args):
     """This method is called when an item is selected"""
+    if self.interface_drop_menu.selected_value == None: return
+    self.clear_all_selection()
+    # print(self.interface_drop_menu.selected_value)
     dhcp = anvil.server.call('anvil_grid_dhcp_details', self.interface_drop_menu.selected_value)
     arp =  anvil.server.call('anvil_grid_arp', self.interface_drop_menu.selected_value)
     self.repeating_panel_dhcp.items = dhcp
@@ -82,7 +85,7 @@ class DHCPForm(DHCPFormTemplate):
     pass
 
 
-  def clear_selection(self):
+  def clear_all_selection(self):
     self.available_from_dhcp_checkbox.checked = False
     self.available_outside_dhcp_checkbox.checked = False
     self.show_arp_checkbox.checked = False
@@ -93,3 +96,6 @@ class DHCPForm(DHCPFormTemplate):
     self.statistics_grid.visible = False
     self.available_from_dhcp_grid.visible = False
     self.available_from_subnet_grid.visible = False
+
+
+    
