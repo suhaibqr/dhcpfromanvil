@@ -9,20 +9,16 @@ class dhcpTemplate(dhcpTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    # repeating_panel_dhcp.items
-    # repeating_panel_dhcp.items
     id = Handlers.get_actions_id()
-    print(self.item)
     if self.item["reserved"] == False:
       self.item["is_static"] = "Static" 
       btn = Button(text="Revoke")
       self.add_component(btn, column=id)
-      # print(self.item)
     else: 
       btn = Button(text="Reserve")
       self.item["is_static"] = "Dynamic"
       self.add_component(btn, column=id )
-      # print(self.item)
+
 
     
       

@@ -16,6 +16,7 @@ class DHCPForm(DHCPFormTemplate):
 
   def update_data_btn_click(self, **event_args):
     with Notification("Please Wait While Updating"):
+      self.clear_selection()
       aa = self.dhcp_grid.columns[-1]["id"]
       Handlers.save_actions_id(aa)
       r = anvil.server.call('get_available_ips')
@@ -40,6 +41,7 @@ class DHCPForm(DHCPFormTemplate):
     arp =  anvil.server.call('anvil_grid_arp', self.interface_drop_menu.selected_value)
     self.repeating_panel_dhcp.items = dhcp
     self.repeating_panel_arp.items = arp
+    self.available_from_dhcp, self.available_from_subnet = anvil.server.call('u_get_available_ips', self.interface_drop_menu.selected_value)
     pass
 
   def show_statistics_checkbox_change(self, **event_args):
@@ -59,7 +61,35 @@ class DHCPForm(DHCPFormTemplate):
     
     pass
 
-  def outlined_button_2_click(self, **event_args):
-    """This method is called when the button is clicked"""
+  def available_from_dhcp_checkbox_change(self, **event_args):
+    """This method is called when this checkbox is checked or unchecked"""
+    d = self.available_from_dhcp_grid.columns[0]
+    self.available_from_dhcp_grid.columns = [d]
+    self.available_from_dhcp_grid.columns = self.available_from_dhcp_grid.columns 
+    # print(self.available_from_dhcp_grid.columns[0])
+    self.available_from_dhcp_repeating_panel.items = self.available_from_dhcp
+    self.available_from_dhcp_grid.visible = True if self.available_from_dhcp_checkbox.checked else False
     pass
 
+  def available_outside_dhcp_checkbox_change(self, **event_args):
+    s = self.available_from_subnet_grid.columns[0]
+    self.available_from_subnet_grid.columns = [s]
+    self.available_from_subnet_grid.columns = self.available_from_subnet_grid.columns
+    print(self.available_from_subnet_grid.columns[0])
+    self.available_from_subnet_repeating_panel.items = self.available_from_subnet
+    self.available_from_subnet_grid.visible = True if self.available_outside_dhcp_checkbox.checked else False
+    """This method is called when this checkbox is checked or unchecked"""
+    pass
+
+
+  def clear_selection(self):
+    self.available_from_dhcp_checkbox.checked = False
+    self.available_outside_dhcp_checkbox.checked = False
+    self.show_arp_checkbox.checked = False
+    self.show_dhcp_checkbox.checked = False
+    self.show_statistics_checkbox.checked = False
+    self.dhcp_grid.visible = False 
+    self.arp_grid.visible = False
+    self.statistics_grid.visible = False
+    self.available_from_dhcp_grid.visible = False
+    self.available_from_subnet_grid.visible = False

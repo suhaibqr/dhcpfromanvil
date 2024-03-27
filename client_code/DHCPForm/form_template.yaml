@@ -51,11 +51,16 @@ components:
     type: CheckBox
     layout_properties: {grid_position: 'HTQMKT,BRWOEI'}
     event_bindings: {change: show_arp_checkbox_change}
-  - name: outlined_button_2
-    properties: {text: Show Assignable IPs, role: outlined-button}
-    type: Button
-    layout_properties: {grid_position: 'HTQMKT,QONLLV'}
-    event_bindings: {click: outlined_button_2_click}
+  - name: available_from_dhcp_checkbox
+    properties: {text: Available IPs From DHCP Pools}
+    type: CheckBox
+    layout_properties: {grid_position: 'HTQMKT,PZBFCN'}
+    event_bindings: {change: available_from_dhcp_checkbox_change}
+  - name: available_outside_dhcp_checkbox
+    properties: {text: Available IPs Outside DHCP Pools}
+    type: CheckBox
+    layout_properties: {grid_position: 'HTQMKT,QPYYJH'}
+    event_bindings: {change: available_outside_dhcp_checkbox_change}
   - name: rich_text_5
     properties: {content: Static Assignment}
     type: RichText
@@ -120,4 +125,30 @@ components:
     properties: {item_template: DHCPForm.arpTemplate}
     type: RepeatingPanel
   layout_properties: {grid_position: 'FAFSHE,FLOHCV'}
+- name: available_from_dhcp_grid
+  properties:
+    columns:
+    - {id: JKSDUP, title: Available IPs from DHCP Pools, data_key: dhcp}
+    - {id: VJQQOR, title: Column 2, data_key: column_2}
+    - {id: OJLQEN, title: Column 3, data_key: column_3}
+    visible: false
+  type: DataGrid
+  components:
+  - name: available_from_dhcp_repeating_panel
+    properties: {item_template: DHCPForm.availabledhcp}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'GOPHJU,OFFTRT'}
+- name: available_from_subnet_grid
+  properties:
+    columns:
+    - {id: JKSDUP, title: Available IPs from Subnet, data_key: subnet}
+    - {id: VJQQOR, title: Column 2, data_key: column_2}
+    - {id: OJLQEN, title: Column 3, data_key: column_3}
+    visible: false
+  type: DataGrid
+  components:
+  - name: available_from_subnet_repeating_panel
+    properties: {item_template: DHCPForm.availablesubnet}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'GOPHJU,BRKELI'}
 is_package: true
