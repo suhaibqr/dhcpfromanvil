@@ -10,80 +10,90 @@ components:
 
         ***Click on "UPDATE Data" First***', align: center}
     type: RichText
-    layout_properties: {grid_position: 'YVJQPR,MGKWZG'}
-  - name: last_update
-    properties: {content: '', visible: false}
-    type: RichText
-    layout_properties: {grid_position: 'BBWWDR,QUHRZJ'}
-  - name: update_data_btn
-    properties: {text: Update Data, role: outlined-button, underline: true, italic: false,
-      bold: true, icon: 'fa:refresh'}
-    type: Button
-    layout_properties: {grid_position: 'BBWWDR,OCADWF', full_width_row: false}
-    event_bindings: {click: update_data_btn_click}
-  - name: show_statistics_checkbox
-    properties: {text: Show Summary Table, checked: true}
-    type: CheckBox
-    layout_properties: {grid_position: 'BBWWDR,HUXXEX'}
-    event_bindings: {change: show_statistics_checkbox_change}
-  - name: rich_text_4
-    properties: {content: Check IP availability, align: right}
-    type: RichText
-    layout_properties: {grid_position: 'YQPHJR,KFRAVW'}
-  - name: ip_address_input_box
-    properties: {placeholder: Enter IP Address}
-    type: TextBox
-    layout_properties: {grid_position: 'YQPHJR,HHESSN'}
-  - name: check_ip_btn
-    properties: {text: Check IP, role: outlined-button, align: left, icon: 'fa:binoculars'}
-    type: Button
-    layout_properties: {grid_position: 'YQPHJR,IQTVGI'}
-    event_bindings: {click: check_ip_btn_click}
-  - name: rich_text_3
-    properties: {content: Select interface & Data, align: right}
-    type: RichText
-    layout_properties: {grid_position: 'HTQMKT,QXLKLL'}
-  - name: interface_drop_menu
-    properties: {placeholder: Select Interface, include_placeholder: true}
-    type: DropDown
-    layout_properties: {grid_position: 'HTQMKT,WUHCOA'}
-    event_bindings: {change: interface_drop_menu_change}
-  - name: show_dhcp_checkbox
-    properties: {text: DHCP}
-    type: CheckBox
-    layout_properties: {grid_position: 'HTQMKT,ENYSVW'}
-    event_bindings: {change: show_dhcp_checkbox_change}
-  - name: show_arp_checkbox
-    properties: {text: ARP}
-    type: CheckBox
-    layout_properties: {grid_position: 'HTQMKT,BRWOEI'}
-    event_bindings: {change: show_arp_checkbox_change}
-  - name: available_from_dhcp_checkbox
-    properties: {text: Unused IPs From DHCP Pools}
-    type: CheckBox
-    layout_properties: {grid_position: 'HTQMKT,PZBFCN'}
-    event_bindings: {change: available_from_dhcp_checkbox_change}
-  - name: available_outside_dhcp_checkbox
-    properties: {text: Unused IPs Outside DHCP Pools}
-    type: CheckBox
-    layout_properties: {grid_position: 'HTQMKT,QPYYJH'}
-    event_bindings: {change: available_outside_dhcp_checkbox_change}
-  - name: rich_text_5
-    properties: {content: Static Assignment, align: right}
-    type: RichText
-    layout_properties: {grid_position: 'EXHZEF,YTKHUC'}
-  - name: text_box_1
-    properties: {text: IP}
-    type: TextBox
-    layout_properties: {grid_position: 'EXHZEF,CODPBS'}
-  - name: text_box_2
-    properties: {text: MAC}
-    type: TextBox
-    layout_properties: {grid_position: 'EXHZEF,WKWVAZ'}
-  - name: outlined_button_1
-    properties: {text: Bind, role: outlined-button, align: left, icon: 'fa:chain'}
-    type: Button
-    layout_properties: {grid_position: 'EXHZEF,IMJOST', full_width_row: false}
+    layout_properties: {grid_position: 'AXLOTU,MEFOXC'}
+    components:
+    - name: update_data_btn
+      properties: {text: Update Data, role: outlined-button, underline: true, italic: false,
+        bold: true, icon: 'fa:refresh'}
+      type: Button
+      event_bindings: {click: update_data_btn_click}
+    - name: show_statistics_checkbox
+      properties: {text: Show Summary Table, checked: true, align: center}
+      type: CheckBox
+      layout_properties: {}
+      event_bindings: {change: show_statistics_checkbox_change}
+    - name: last_update
+      properties: {content: '', visible: false}
+      type: RichText
+  - name: outlined_card_2
+    properties: {role: outlined-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'YRTZAR,NBHCNG'}
+    components:
+    - name: rich_text_4
+      properties: {content: Check IP availability, align: right}
+      type: RichText
+      layout_properties: {grid_position: 'EXUMNF,ZCEIQO'}
+    - name: ip_address_input_box
+      properties: {placeholder: Enter IP Address}
+      type: TextBox
+      layout_properties: {grid_position: 'EXUMNF,YHXJKG'}
+    - name: check_ip_btn
+      properties: {text: Check IP, role: outlined-button, align: left, icon: 'fa:binoculars'}
+      type: Button
+      layout_properties: {grid_position: 'EXUMNF,ZTLSPX'}
+      event_bindings: {click: check_ip_btn_click}
+  - name: outlined_card_3
+    properties: {role: outlined-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FORELS,QAJIJE'}
+    components:
+    - name: interface_drop_menu
+      properties: {placeholder: Select Interface, include_placeholder: true, align: center}
+      type: DropDown
+      layout_properties: {grid_position: 'GAUWDQ,DIPDMQ'}
+      event_bindings: {change: interface_drop_menu_change}
+    - name: show_arp_checkbox
+      properties: {text: ARP}
+      type: CheckBox
+      layout_properties: {grid_position: 'QUYHLU,ZNLLVG BWFQWB,DVVAPH'}
+      event_bindings: {change: show_arp_checkbox_change}
+    - name: available_from_dhcp_checkbox
+      properties: {text: Unused IPs From DHCP Pools}
+      type: CheckBox
+      layout_properties: {grid_position: 'QUYHLU,ZNLLVG LYQCAR,NZWKQM'}
+      event_bindings: {change: available_from_dhcp_checkbox_change}
+    - name: show_dhcp_checkbox
+      properties: {text: DHCP}
+      type: CheckBox
+      layout_properties: {grid_position: 'QUYHLU,XNXNXQ JINOMI,BPYHBC'}
+      event_bindings: {change: show_dhcp_checkbox_change}
+    - name: available_outside_dhcp_checkbox
+      properties: {text: Unused IPs Outside DHCP Pools}
+      type: CheckBox
+      layout_properties: {grid_position: 'QUYHLU,XNXNXQ RQKKFD,YFNZES'}
+      event_bindings: {change: available_outside_dhcp_checkbox_change}
+  - name: outlined_card_4
+    properties: {role: outlined-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'BMJWCS,EGHFGQ'}
+    components:
+    - name: rich_text_5
+      properties: {content: Static Assignment, align: right}
+      type: RichText
+      layout_properties: {grid_position: 'HPYVSE,HDOYBT'}
+    - name: text_box_1
+      properties: {text: IP}
+      type: TextBox
+      layout_properties: {grid_position: 'HPYVSE,ISTYEG'}
+    - name: text_box_2
+      properties: {text: MAC}
+      type: TextBox
+      layout_properties: {grid_position: 'HPYVSE,WZWGUB'}
+    - name: outlined_button_1
+      properties: {text: Bind, role: outlined-button, align: left, icon: 'fa:chain'}
+      type: Button
+      layout_properties: {grid_position: 'HPYVSE,VFNSZQ'}
 - name: statistics_grid
   properties:
     columns:
