@@ -24,7 +24,8 @@ class DHCPForm(DHCPFormTemplate):
       self.repeating_panel_statistics.items = r
       self.interface_drop_menu.items = [x["interface"] for x in r]
       self.interface_drop_menu.selected_value = None
-      t = datetime.now()
+      self.last_update.content = f"Last Update was at: {datetime.now()} UTC"
+      self.last_update.visible = True
     Notification("Update Was Successful")
     
     # print(self.repeating_panel_statistics.items)
