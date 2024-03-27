@@ -2,6 +2,7 @@ from ._anvil_designer import DHCPFormTemplate
 from anvil import *
 import anvil.server
 from .. import Handlers
+from datetime import datetime
 
 
 # data keys will contain a button "reserve, revoke"
@@ -23,6 +24,7 @@ class DHCPForm(DHCPFormTemplate):
       self.repeating_panel_statistics.items = r
       self.interface_drop_menu.items = [x["interface"] for x in r]
       self.interface_drop_menu.selected_value = None
+      t = datetime.now()
     Notification("Update Was Successful")
     
     # print(self.repeating_panel_statistics.items)

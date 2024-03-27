@@ -9,11 +9,20 @@ components:
     properties: {content: Update Data}
     type: RichText
     layout_properties: {grid_position: 'BBWWDR,UDWBZH'}
+  - name: last_update
+    properties: {content: '', visible: false}
+    type: RichText
+    layout_properties: {grid_position: 'BBWWDR,QUHRZJ'}
   - name: update_data_btn
     properties: {text: Update Data, role: outlined-button}
     type: Button
     layout_properties: {grid_position: 'BBWWDR,OCADWF'}
     event_bindings: {click: update_data_btn_click}
+  - name: show_statistics_checkbox
+    properties: {text: Show Statistics}
+    type: CheckBox
+    layout_properties: {grid_position: 'BBWWDR,HUXXEX'}
+    event_bindings: {change: show_statistics_checkbox_change}
   - name: rich_text_4
     properties: {content: Check IP availability}
     type: RichText
@@ -36,11 +45,6 @@ components:
     type: DropDown
     layout_properties: {grid_position: 'HTQMKT,WUHCOA'}
     event_bindings: {change: interface_drop_menu_change}
-  - name: show_statistics_checkbox
-    properties: {text: Statistics}
-    type: CheckBox
-    layout_properties: {grid_position: 'HTQMKT,OCQAIR'}
-    event_bindings: {change: show_statistics_checkbox_change}
   - name: show_dhcp_checkbox
     properties: {text: DHCP}
     type: CheckBox
