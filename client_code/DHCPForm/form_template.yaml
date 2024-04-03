@@ -17,14 +17,22 @@ components:
         bold: true, icon: 'fa:refresh'}
       type: Button
       event_bindings: {click: update_data_btn_click}
-    - name: show_statistics_checkbox
-      properties: {text: Show Summary Table, checked: true, align: center}
-      type: CheckBox
-      layout_properties: {}
-      event_bindings: {change: show_statistics_checkbox_change}
     - name: last_update
       properties: {content: '', visible: false}
       type: RichText
+    - name: column_panel_1
+      properties: {}
+      type: ColumnPanel
+      components:
+      - name: show_statistics_checkbox
+        properties: {text: Show Summary Table, checked: true, align: right}
+        type: CheckBox
+        layout_properties: {grid_position: 'AUQWOE,KVAGJH'}
+        event_bindings: {change: show_statistics_checkbox_change}
+      - name: export_summary_table
+        properties: {text: '', align: left, icon: 'fa:download'}
+        type: Button
+        layout_properties: {grid_position: 'AUQWOE,PWUJNB'}
   - name: outlined_card_2
     properties: {role: outlined-card}
     type: ColumnPanel
@@ -53,21 +61,38 @@ components:
       type: DropDown
       layout_properties: {grid_position: 'GAUWDQ,DIPDMQ'}
       event_bindings: {change: interface_drop_menu_change}
+    - name: export_arp_table
+      properties: {text: '', icon_align: right, icon: 'fa:download', align: right}
+      type: Button
+      layout_properties: {grid_position: 'QUYHLU,ZNLLVG BWFQWB,SWZRMH'}
+      event_bindings: {click: export_arp_table_click}
     - name: show_arp_checkbox
       properties: {text: ARP}
       type: CheckBox
       layout_properties: {grid_position: 'QUYHLU,ZNLLVG BWFQWB,DVVAPH'}
       event_bindings: {change: show_arp_checkbox_change}
+    - name: export_unused_dhcp_btn
+      properties: {text: '', align: right, icon: 'fa:download'}
+      type: Button
+      layout_properties: {grid_position: 'QUYHLU,ZNLLVG LYQCAR,DXBOOC'}
     - name: available_from_dhcp_checkbox
       properties: {text: Unused IPs From DHCP Pools}
       type: CheckBox
       layout_properties: {grid_position: 'QUYHLU,ZNLLVG LYQCAR,NZWKQM'}
       event_bindings: {change: available_from_dhcp_checkbox_change}
+    - name: export_dhcp_table
+      properties: {text: '', align: right, icon: 'fa:download'}
+      type: Button
+      layout_properties: {grid_position: 'QUYHLU,XNXNXQ JINOMI,MVRHSM'}
     - name: show_dhcp_checkbox
       properties: {text: DHCP}
       type: CheckBox
       layout_properties: {grid_position: 'QUYHLU,XNXNXQ JINOMI,BPYHBC'}
       event_bindings: {change: show_dhcp_checkbox_change}
+    - name: export_unused_ips_outside_dhcp
+      properties: {text: '', align: right, icon: 'fa:download'}
+      type: Button
+      layout_properties: {grid_position: 'QUYHLU,XNXNXQ RQKKFD,VHDUKA'}
     - name: available_outside_dhcp_checkbox
       properties: {text: Unused IPs Outside DHCP Pools}
       type: CheckBox

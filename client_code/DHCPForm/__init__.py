@@ -104,5 +104,13 @@ class DHCPForm(DHCPFormTemplate):
     self.available_from_dhcp_grid.visible = False
     self.available_from_subnet_grid.visible = False
 
+  def export_arp_table_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.repeating_panel_arp.items != None and len(self.repeating_panel_arp.items) >= 1:
+      Handlers.download_as_csv(self.repeating_panel_arp.items)
+    else:
+      Notification('Can not export, No Data Available').show()
+    pass
+
 
     

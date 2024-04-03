@@ -1,4 +1,5 @@
 import anvil.server
+import pandas as pd
 # This is a module.
 # You can define variables and functions here, and use them from any form. For example, in a top-level form:
 #
@@ -18,3 +19,10 @@ def save_actions_id(i):
 
 def get_actions_id():
   return actions_id
+
+
+def download_as_csv(rep_panel, download_name):
+  df = pd.DataFrame(rep_panel)
+  csv = df.to_csv()
+  m = anvil.BlobMedia(content_type="text/plain", content= csv, name=download_name)
+  anvil.media.download(m)
