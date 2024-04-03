@@ -24,10 +24,12 @@ class DHCPForm(DHCPFormTemplate):
       self.repeating_panel_statistics.items = r
       self.interface_drop_menu.items = [x["interface"] for x in r]
       self.interface_drop_menu.selected_value = None
-      self.last_update.content = f"Last Update was at: {datetime.now()} UTC"
+      self.dt = datetime.now()
+      self.last_update.content = f"Last Update was at: {self.dt} UTC"
       self.last_update.visible = True
       # if self.show_statistics_checkbox.checked
       self.statistics_grid.visible = True
+      self.export_date = self.dt.strftime("%Y-%m-%d-%Hh-%Mm-%Ss")
     Notification("Update Was Successful")
     
     # print(self.repeating_panel_statistics.items)
@@ -107,10 +109,54 @@ class DHCPForm(DHCPFormTemplate):
   def export_arp_table_click(self, **event_args):
     """This method is called when the button is clicked"""
     if self.repeating_panel_arp.items != None and len(self.repeating_panel_arp.items) >= 1:
-      Handlers.download_as_csv(self.repeating_panel_arp.items)
+      t = self.export_date
+      Handlers.download_as_csv(self.repeating_panel_arp.items, f'arp_table_{t}.csv')
     else:
-      Notification('Can not export, No Data Available').show()
+      Notification('Can not export, No Data Available, Try to Update or Select Interface').show()
     pass
+
+  def export_summary_table_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.repeating_panel_statistics.items != None and len(self.repeating_panel_statistics.items) >= 1:
+      t = self.export_date
+      Handlers.download_as_csv(self.repeating_panel_statistics.items, f'arp_table_{t}.csv')
+    else:
+      Notification('Can not export, No Data Available, Try to Update or Select Interface').show()
+    pass
+
+  def export_dhcp_table_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    
+    
+    if self.repeating_panel_dhcp.items != None and len(self.repeating_panel_dhcp.items) >= 1:
+      t = self.export_date
+      Handlers.download_as_csv(self.repeating_panel_dhcp.items, f'arp_table_{t}.csv')
+    else:
+      Notification('Can not export, No Data Available, Try to Update or Select Interface').show()
+    pass
+
+  def export_unused_dhcp_btn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+       
+    if self.repeating_panel_dhcp.items != None and len(self.repeating_panel_dhcp.items) >= 1:
+      t = self.export_date
+      Handlers.download_as_csv(self.repeating_panel_dhcp.items, f'arp_table_{t}.csv')
+    else:
+      Notification('Can not export, No Data Available, Try to Update or Select Interface').show()
+    pass
+
+  def export_unused_ips_outside_dhcp_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    
+    if self.available_from_subnet_repeating_panel.items != None and len(self.available_from_subnet_repeating_panel.items) >= 1:
+      t = self.export_date
+      Handlers.download_as_csv(self.available_from_subnet_repeating_panel.items, f'arp_table_{t}.csv')
+    else:
+      Notification('Can not export, No Data Available, Try to Update or Select Interface').show()
+    pass
+    
+    
+    
 
 
     

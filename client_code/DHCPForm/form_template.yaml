@@ -33,6 +33,7 @@ components:
         properties: {text: '', align: left, icon: 'fa:download'}
         type: Button
         layout_properties: {grid_position: 'AUQWOE,PWUJNB'}
+        event_bindings: {click: export_summary_table_click}
   - name: outlined_card_2
     properties: {role: outlined-card}
     type: ColumnPanel
@@ -75,6 +76,7 @@ components:
       properties: {text: '', align: right, icon: 'fa:download'}
       type: Button
       layout_properties: {grid_position: 'QUYHLU,ZNLLVG LYQCAR,DXBOOC'}
+      event_bindings: {click: export_unused_dhcp_btn_click}
     - name: available_from_dhcp_checkbox
       properties: {text: Unused IPs From DHCP Pools}
       type: CheckBox
@@ -84,6 +86,7 @@ components:
       properties: {text: '', align: right, icon: 'fa:download'}
       type: Button
       layout_properties: {grid_position: 'QUYHLU,XNXNXQ JINOMI,MVRHSM'}
+      event_bindings: {click: export_dhcp_table_click}
     - name: show_dhcp_checkbox
       properties: {text: DHCP}
       type: CheckBox
@@ -93,6 +96,7 @@ components:
       properties: {text: '', align: right, icon: 'fa:download'}
       type: Button
       layout_properties: {grid_position: 'QUYHLU,XNXNXQ RQKKFD,VHDUKA'}
+      event_bindings: {click: export_unused_ips_outside_dhcp_click}
     - name: available_outside_dhcp_checkbox
       properties: {text: Unused IPs Outside DHCP Pools}
       type: CheckBox
