@@ -155,7 +155,15 @@ class DHCPForm(DHCPFormTemplate):
       Notification('Can not export, No Data Available, Try to Update or Select Interface').show()
     pass
     
-    
+  def revoke_lease_btn_click(self, **event_args):
+    print(event_args)
+
+  def make_it_static_btn_click(self, **event_args):
+    print(event_args)
+
+  def remove_static_btn_click(self, **event_args):
+    print(event_args)
+      
     
 
 
